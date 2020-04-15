@@ -1,0 +1,90 @@
+<h1 style="color: gray;">{{country}} <img class="images" [src]="flag"/></h1>
+<!-- <p></p> -->
+<mat-divider></mat-divider>
+
+<div fxLayout="row" fxLayoutAlign="space-between left" fxLayoutGap="10px" class="stats-cards">
+    <mat-card fxFlex="25">
+        <h1 style="text-align: center; font-size: 1.5em; color: gray">{{languageService.show('case')}}</h1>
+        <p style="font-weight: bold; text-align: center; color: gray; font-size: 1.5em;">
+            {{cases}}
+        </p>
+    </mat-card>
+
+    <mat-card fxFlex="25">
+        <h1 style="text-align: center; font-size: 1.5em; color: gray">{{languageService.show('death')}}</h1>
+        <p style="font-weight: bold; text-align: center; color: #F0665B; font-size: 1.5em;">
+            {{deaths}}
+        </p>
+    </mat-card>
+
+    <mat-card fxFlex="25">
+        <h1 style="text-align: center; font-size: 1.5em; color: gray">{{languageService.show('death_rate')}}</h1>
+        <p style="font-weight: bold; text-align: center; color: #F0665B; font-size: 1.5em;">
+            {{death_rate}} (%)
+        </p>
+    </mat-card>
+
+    <mat-card fxFlex="25">
+        <h1 style="text-align: center; font-size: 1.5em; color: gray">{{languageService.show('recovered')}}</h1>
+        <p style="font-weight: bold; text-align: center; color: rgb(111, 182, 6); font-size: 1.5em;">
+            {{recovered}}
+        </p>
+    </mat-card>
+
+    <mat-card fxFlex="25">
+        <h1 style="text-align: center; font-size: 1.5em; color: gray">{{languageService.show('recovered_rate')}}</h1>
+        <p style="font-weight: bold; text-align: center; color: rgb(111, 182, 6); font-size: 1.5em;">
+            {{recovered_rate}} (%)
+        </p>
+    </mat-card>
+</div>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-linechart00  [country]="country"></app-detail-linechart00>
+    </mat-card-content>
+</mat-card>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-linechart01  [country]="country"></app-detail-linechart01>
+    </mat-card-content>
+</mat-card>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-barchart01  [country]="country"></app-detail-barchart01>
+    </mat-card-content>
+</mat-card>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-barchart02  [country]="country"></app-detail-barchart02>
+    </mat-card-content>
+</mat-card>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-barchart03  [country]="country"></app-detail-barchart03>
+    </mat-card-content>
+</mat-card>
+
+<br>
+
+<mat-card>
+    <mat-card-content>
+        <app-detail-linechart02  [country]="country"></app-detail-linechart02>
+    </mat-card-content>
+</mat-card>
+
+

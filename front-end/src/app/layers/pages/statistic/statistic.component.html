@@ -1,0 +1,80 @@
+<h1 style="color: gray;">{{languageService.show('stat_title')}}</h1>
+
+<div class="mat-elevation-z8 data-table">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+    <td mat-cell *matCellDef="let element; let i = index;"> 
+      {{paginator.pageIndex * paginator.pageSize + i + 1}} 
+    </td>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="rank">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col1')}}</th>
+      <td mat-cell *matCellDef="let row">{{row.rank}}</td>
+    </ng-container>
+
+     <!-- Name Column -->
+    <ng-container matColumnDef="flag">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col2')}}</th>
+      <td mat-cell *matCellDef="let row"> <img class="images" [src]="row.flag"/></td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col3')}}</th>
+      <td mat-cell *matCellDef="let row">{{row.country}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cases">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col4')}}</th>
+      <td mat-cell *matCellDef="let row">{{numberWithCommas(row.cases)}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="deaths">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col5')}}</th>
+      <td mat-cell *matCellDef="let row" style="color: red;">{{numberWithCommas(row.deaths)}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="recovered">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col6')}}</th>
+      <td mat-cell *matCellDef="let row" style="color: green;">{{numberWithCommas(row.recovered)}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col7')}}</th>
+      <td mat-cell *matCellDef="let row" style="color: #E59A05;">{{numberWithCommas(row.active)}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="death_rate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col8')}}</th>
+      <td mat-cell *matCellDef="let row" style="color: red;">{{row.death_rate}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="recovered_rate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col9')}}</th>
+      <td mat-cell *matCellDef="let row" style="color: green;">{{row.recovered_rate}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="days">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{languageService.show('col10')}}</th>
+      <td mat-cell *matCellDef="let row">{{row.days}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[detailRouter(languageService.opt), row.country]"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[1, 25, 50, 100, 250]">
+  </mat-paginator>
+</div>

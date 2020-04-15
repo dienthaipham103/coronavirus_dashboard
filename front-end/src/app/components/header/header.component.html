@@ -1,0 +1,41 @@
+<mat-toolbar class="toolbar" style="background-color: #F2EFF4;">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span> {{languageService.show('title')}}</span>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <span style="color: gray; font-size: small;">{{this.languageService.show('language')}}</span>
+                </li>
+                <li>
+                    <!-- <mat-form-field> -->
+                        <mat-select [(value)]= "languageService.option">
+                            <!-- <mat-label style="font-size: small;">Languages</mat-label> -->
+                            <mat-option value=0 style="font-size: small;">Tiếng Việt</mat-option>
+                            <mat-option value=1 style="font-size: small;">English</mat-option>
+                        </mat-select>
+                    <!-- </mat-form-field> -->
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon routerLink={{mapRouter(languageService.opt)}}>explore</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon routerLink={{chartRouter(languageService.opt)}}>timeline</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon routerLink={{statisticRouter(languageService.opt)}}>view_list</mat-icon>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

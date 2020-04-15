@@ -1,0 +1,53 @@
+<mat-nav-list>
+    <div fxLayout="column" fxLayoutAlign="space-between left" fxLayoutGap="10px" class="stats-cards">
+        <mdb-card>
+            <!--Card image-->
+            <mdb-card-img src="assets/virus.jpg">
+            </mdb-card-img>
+            <!--Card content-->
+            <mdb-card-body>
+              <!--Title-->
+              <mdb-card-title>
+                <!-- <h1 style="color: blue; 
+                text-align: center;
+                font-family: sans-serif;">
+                Global Information
+                </h1> -->
+              </mdb-card-title>
+              <!--Text-->
+              <mdb-card-text>
+                <p style="text-align: center; color: purple;">
+                    {{languageService.show('description')}}
+                </p>
+              </mdb-card-text>
+            </mdb-card-body>
+        </mdb-card>
+
+        <mat-card fxFlex="25">
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">{{languageService.show('case')}}</h1>
+            <p style="font-weight: bold; text-align: center; color: gray; font-size: 2em;">
+                {{cases}}
+            </p>
+        </mat-card>
+        
+        <mat-card fxFlex="25">
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">{{languageService.show('death')}}</h1>
+            <p style="font-weight: bold; text-align: center; color: red; font-size: 2em;">
+                {{deaths}}
+                <span>
+                    <mat-icon color="primary">trending_up</mat-icon>
+                </span>
+                {{death_rate}} %
+            </p>
+            <h1 style="text-align: center; font-size: 1.5em; color: gray;">{{languageService.show('recovered')}}</h1>
+            <p style="font-weight: bold; text-align: center; color: rgb(111, 182, 6); font-size: 2em;">
+                {{recovered}}
+                <span>
+                    <mat-icon color="primary">trending_up</mat-icon>
+                </span>
+                {{recovered_rate}} %
+            </p>
+        </mat-card>
+    </div>
+
+</mat-nav-list>
